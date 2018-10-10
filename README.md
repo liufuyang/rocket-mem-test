@@ -13,3 +13,9 @@ Afterwards keep refreshing on `http://localhost:8000/`, try wait for 5 or 5 seco
 The memory usage goes from 1MB up to 4MB.
 
 I am not sure if keep on refreshing will keep the memory continue to grow.
+
+You can use the following command to make the memory reach more than 4MB fast.
+```
+ab -n 1000 -c 20 http://localhost:8000/
+ab -n 1000 -c 20 http://localhost:8000/login
+```

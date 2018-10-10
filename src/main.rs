@@ -21,7 +21,16 @@ struct UserState {
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 struct User {
-    token: String,
+    token1: String,
+    token2: String,
+    token3: String,
+    token4: String,
+    token5: String,
+    token6: String,
+    token7: String,
+    token8: String,
+    token9: String,
+    token10: String,
 }
 
 pub fn user_store_fairing() -> AdHoc {
@@ -33,10 +42,19 @@ pub fn user_store_fairing() -> AdHoc {
         let thread_map = map.clone();
 
         thread::spawn(move || loop {
-            thread::sleep(std::time::Duration::from_millis(500));
+            thread::sleep(std::time::Duration::from_millis(1000));
             let mut _map = thread_map.lock().unwrap();
             for user in _map.values_mut() {
-                user.token = Uuid::new_v4().to_string();
+                user.token1 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
+                user.token2 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
+                user.token3 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
+                user.token4 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
+                user.token5 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
+                user.token6 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
+                user.token7 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
+                user.token8 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
+                user.token9 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
+                user.token10 = Uuid::new_v4().to_string() + Uuid::new_v4().to_string().as_ref();
             }
         });
 
@@ -56,12 +74,20 @@ fn index(state: State<UserState>) -> Json<HashMap<String, User>> {
 #[get("/login")]
 fn login(state: State<UserState>) -> Json<HashMap<String, User>> {
     let mut map = state.map.lock().unwrap();
-    let uuid = Uuid::new_v4();
 
     map.insert(
         "1".to_owned(),
         User {
-            token: uuid.to_string(),
+            token1: Uuid::new_v4().to_string(),
+            token2: Uuid::new_v4().to_string(),
+            token3: Uuid::new_v4().to_string(),
+            token4: Uuid::new_v4().to_string(),
+            token5: Uuid::new_v4().to_string(),
+            token6: Uuid::new_v4().to_string(),
+            token7: Uuid::new_v4().to_string(),
+            token8: Uuid::new_v4().to_string(),
+            token9: Uuid::new_v4().to_string(),
+            token10: Uuid::new_v4().to_string(),
         },
     );
 
