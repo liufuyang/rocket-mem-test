@@ -6,9 +6,9 @@ cargo run
 
 Open Activity Monitor to check the memory usage, it starts around 1MB.
 
-Then visit `http://localhost:8000/login`.
+Then visit `http://localhost:8000/`.
 
-Afterwards keep refreshing on `http://localhost:8000/`, try wait for 5 or 5 seconds before each refreshing.
+Afterwards keep refreshing on `http://localhost:8000/`, try wait for 10 or 20 seconds before each refreshing.
 
 The memory usage goes from 1MB up to 4MB.
 
